@@ -1,9 +1,8 @@
 "use client";
 
-import WrappedLink from "./WrappedLink";
-import { Flex, Image } from "@chakra-ui/react";
+import Image from "next/image";
+import Link from "next/link";
 import logo from "../public/logo.webp";
-import { css } from "@emotion/react";
 
 const links = [
   {
@@ -28,36 +27,28 @@ const links = [
   },
 ];
 
-const styles = {
-  image: css({
-    borderRadius: "20px",
-  }),
-};
-
 const Navbar = () => {
   return (
-    <Flex as="nav" alignItems="center">
+    <nav className="flex items-center">
       <Image
-        src="logo.webp"
+        className="rounded-full mr-10"
+        width={50}
+        height={50}
+        src={logo}
         alt="logo"
-        borderRadius="full"
-        boxSize="50px"
-        marginRight={3}
       />
-      <Flex as="ul" alignItems="center" gap={5}>
+      <ul className="flex items-center gap-2">
         {links.map((link) => (
-          <WrappedLink
-            color="brand.primary"
-            p={2}
-            borderRadius="4"
-            background="brand.complemntary"
+          <Link
+            className="text-background bg-complementary p-2 rounded-md"
             key={link.href}
             href={link.href}
-            label={link.label}
-          />
+          >
+            {link.label}
+          </Link>
         ))}
-      </Flex>
-    </Flex>
+      </ul>
+    </nav>
   );
 };
 

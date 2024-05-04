@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={fonts.roboto.className}>
+      <body className={`${fonts.roboto.className} bg-primary`}>
         <Providers>
           <Navbar />
           {children}
