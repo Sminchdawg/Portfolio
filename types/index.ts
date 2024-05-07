@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface Experience {
   role: string;
   timeWorked: string;
@@ -8,8 +10,8 @@ export interface Experience {
 export interface Event {
   dateText: string;
   mainText: string;
-  company: string;
-  link: string;
+  secondaryLeft: string;
+  secondaryRight: string;
   description: string;
-  image: string;
+  image?: StaticImageData;
 }

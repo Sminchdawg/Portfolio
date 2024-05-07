@@ -9,6 +9,11 @@ import {
 import { Event } from "../../types";
 import Image from "next/image";
 
+const isValidUrl = (url: string) => {
+  var regex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+  return regex.test(url);
+};
+
 interface TimelineProps {
   events: Event[];
   className?: string;
@@ -26,13 +31,15 @@ const Timeline = ({ events, className }: TimelineProps) => {
       {events.map((event, index) => (
         <Step className="pb-10" key={index}>
           <StepIndicator className="bg-secondary">
-            <Image
-              src={event.image}
-              width={40}
-              height={40}
-              alt="age"
-              className="rounded-full"
-            />
+            {event.image && (
+              <Image
+                src={event.image}
+                width={40}
+                height={40}
+                alt="timeline image"
+                className="rounded-full"
+              />
+            )}
           </StepIndicator>
 
           {/* <Box className="shrink-0">
@@ -45,11 +52,18 @@ const Timeline = ({ events, className }: TimelineProps) => {
             </div>
             <div className="text-background font-bold">{event.mainText}</div>
             <div className="text-background font-light">
-              <span>{event.company}</span>
+              <span>{event.secondaryLeft}</span>
               <span className="mx-2">|</span>
-              <a href={event.link}>{event.link}</a>
+              {isValidUrl(event.secondaryRight) && (
+                <a href={event.secondaryRight} target="_blank">
+                  {event.secondaryRight}
+                </a>
+              )}
+              {!isValidUrl(event.secondaryRight) && (
+                <span>{event.secondaryRight}</span>
+              )}
             </div>
-            <div className="text-background">{event.description}</div>
+            <p className="text-background mt-5">{event.description}</p>
           </div>
 
           <StepSeparator className="bg-background" />

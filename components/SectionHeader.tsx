@@ -4,7 +4,7 @@ interface SectionHeaderProps {
 
 const SectionHeader = ({ text }: SectionHeaderProps) => {
   return (
-    <div className="bg-accent text-text p-3 rounded-md w-min text-nowrap">
+    <div className="bg-accent text-text p-3 rounded-md w-min text-nowrap italic">
       {text}
     </div>
   );
