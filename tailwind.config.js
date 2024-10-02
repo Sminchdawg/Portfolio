@@ -15,6 +15,7 @@ module.exports = {
       complementary: "#AD6D68",
     },
     screens: {
+      xs: "375px",
       sm: "480px",
       md: "768px",
       lg: "976px",

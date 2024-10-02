@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fonts.roboto.className} bg-primary`}>
+      <body className={`${fonts.roboto.className} bg-primary px-5 mt-4`}>
         <Providers>{children}</Providers>
       </body>
     </html>
