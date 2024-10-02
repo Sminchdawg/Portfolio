@@ -41,11 +41,6 @@ const Timeline = ({ events, className }: TimelineProps) => {
               />
             )}
           </StepIndicator>
-
-          {/* <Box className="shrink-0">
-            <StepTitle>{step.title}</StepTitle>
-            <StepDescription>{step.description}</StepDescription>
-          </Box> */}
           <div>
             <div className="text-background uppercase font-light">
               {event.dateText}
